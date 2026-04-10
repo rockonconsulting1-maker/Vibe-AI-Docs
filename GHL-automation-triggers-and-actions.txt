@@ -1,0 +1,444 @@
+# 🤖 Complete Native Automation Triggers & Actions Reference
+> Last Updated: April 2026
+> Scope: All native platform triggers and actions — marketplace/integrated apps excluded.
+> 💰 = Premium (counts against Workflow Pro Plan execution credits)
+
+---
+
+## 📋 TABLE OF CONTENTS
+
+- [TRIGGERS](#-triggers)
+  - [Contact](#-contact-triggers)
+  - [Appointments & Calendar](#-appointment--calendar-triggers)
+  - [Forms & Surveys](#-forms--survey-triggers)
+  - [Opportunities & Pipeline](#-opportunity--pipeline-triggers)
+  - [Payments & Orders](#-payment--order-triggers)
+  - [Conversations & Messaging](#-conversation--messaging-triggers)
+  - [Social Media & Ads](#-social-media--ads-triggers)
+  - [Calls](#-call-triggers)
+  - [Reviews & Reputation](#-review--reputation-triggers)
+  - [Date / Time Based](#-date--time-based-triggers)
+  - [Documents & Contracts](#-document--contract-triggers)
+  - [Community & Memberships](#-community--membership-triggers)
+  - [Company (B2B)](#-company-triggers)
+  - [Custom Objects](#-custom-object-triggers)
+  - [Webhooks](#-webhook-triggers)
+
+- [ACTIONS](#-actions)
+  - [Communication — Outbound](#-communication--outbound-actions)
+  - [Communication — Internal](#-communication--internal-actions)
+  - [Contact Management](#-contact-management-actions)
+  - [Workflow Control & Logic](#-workflow-control--logic-actions)
+  - [Opportunities](#-opportunity-actions)
+  - [Appointments & Calendar](#-appointment--calendar-actions)
+  - [Tasks & Notes](#-task--note-actions)
+  - [Memberships & Communities](#-membership--community-actions)
+  - [Payments & Documents](#-payment--document-actions)
+  - [AI Actions](#-ai-actions)
+  - [Data & Formatting Tools](#-data--formatting-tool-actions)
+  - [Company (B2B)](#-company-actions)
+  - [Custom Objects](#-custom-object-actions)
+  - [Webhooks & Integrations](#-webhook--integration-actions)
+
+---
+
+---
+
+# ⚡ TRIGGERS
+
+---
+
+## 👤 Contact Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Contact Created** | Fires when a new contact record is created | Contact fields, tags, source | Works with manual creation, imports, and form submissions |
+| **Contact Tag Added** | Fires when a specific tag is added to a contact | Tag name | Can be triggered by manual, workflow, CSV import, or 3rd party |
+| **Contact Tag Removed** | Fires when a specific tag is removed from a contact | Tag name | Tag removal via 3rd party integrations not always supported |
+| **Contact Changed** | Fires when any contact field value is updated | Field name, field value | Useful for lifecycle stage automation |
+| **Contact DND Updated** | Fires when a contact's Do Not Disturb status is changed | DND status, channel | Allows compliance-based automation |
+
+---
+
+## 📅 Appointment / Calendar Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Customer Booked Appointment** | Fires when a contact books an appointment | Calendar name | Triggers at booking time, before the appointment occurs |
+| **Appointment Status Changed** | Fires when an appointment status changes | Status (New, Confirmed, Showed, No-Show, Cancelled, Invalid), Calendar name | Most commonly used for no-show recovery and confirmation workflows |
+
+---
+
+## 📋 Forms & Survey Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Form Submitted** | Fires when any form (landing page or embedded) is submitted | Form name | Instant trigger — fires on submission |
+| **Survey Submitted** | Fires when a survey is submitted | Survey name | Use for post-survey follow-up automation |
+
+---
+
+## 🏆 Opportunity / Pipeline Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Opportunity Created** | Fires when a new opportunity is added to a pipeline | Pipeline, stage, standard & custom opportunity fields | Great for new deal onboarding sequences |
+| **Opportunity Status Changed** | Fires when the status of an opportunity is updated (open, won, lost, abandoned) | Status value, pipeline, standard & custom fields | Use for win/loss follow-up sequences |
+| **Pipeline Stage Changed** | Fires when an opportunity moves to a new pipeline stage | Pipeline name, stage name, standard & custom fields | Primary trigger for deal progression automation |
+| **Stale Opportunity** | Fires when an opportunity has had no activity for a set number of days | Number of days inactive, pipeline, stage, fields | Ideal for re-engagement or pipeline hygiene workflows |
+
+---
+
+## 💳 Payment / Order Triggers
+
+| Trigger | Description | Filters / Sub-filters | Notes |
+|---|---|---|---|
+| **Payment Received** | Fires on any incoming payment | Payment Source (Invoice, Funnel/Website, Calendar), Sub-source (Text2Pay, One-time, Recurring, Upsell), Transaction Type (Customer present / not present), Calendar name, Global Product, Payment Status (Success / Failed) | Covers one-time, subscription, invoice, and text-to-pay payments |
+| **Order Submitted** | Fires when an order is placed (after payment finalizes) | Order source, product | Suitable for post-purchase workflows |
+| **Order Form Submission** | Fires when an order form is submitted (fires before payment processing) | Form name | Note: fires before payment is confirmed |
+| **Invoice Trigger** | Fires on invoice lifecycle events | Invoice status (sent, paid, etc.) | Automate invoice follow-ups and receipts |
+| **Subscription Trigger** | Fires on subscription status changes | Subscription status (Created, Trial-to-Active, Cancelled), product | Compatible with Stripe, Authorize.net, NMI; PayPal limited to creation only |
+| **Refund Trigger** | Fires when a refund is processed | Refund success / failure, full / partial refund, refund amount, refund source | Branch-based logic available for different refund scenarios |
+
+---
+
+## 💬 Conversation / Messaging Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Customer Replied** | Fires when a contact sends an inbound message | Reply channel (SMS, Email, Facebook, Instagram, WhatsApp, Live Chat, GMB) | Most common trigger for conversation automation |
+| **Email Events** | Fires when an email is opened or a link is clicked | Event type (Opened / Clicked), specific campaign or template | Requires open/click tracking enabled on sending domain |
+| **Trigger Link Clicked** | Fires when a contact clicks a tracked trigger link | Specific trigger link name | Must use tracked links created within the platform |
+
+---
+
+## 📱 Social Media / Ads Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Facebook Lead Form Submitted** | Fires when a lead submits a Facebook Lead Ad Instant Form | Page name, form name | Requires Facebook integration |
+| **User Comments on a Post (Facebook)** | Fires when a user comments on a connected Facebook Business Page post | Page name, post type (Published / Custom), comment content (Contains Phrase / Exact Match), first-level comments only toggle | Enables comment automation (auto-DM, auto-reply) |
+| **User Comments on a Post (Instagram)** | Fires when a user comments on a connected Instagram Business Account post | Page name, post type, comment content, first-level only toggle | Same capabilities as Facebook comment trigger |
+
+---
+
+## 📞 Call Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Call Status Updated** | Fires when the status of an inbound or outbound call changes | Call direction (Inbound / Outbound), Call status (Answered, Missed, Voicemail, etc.), Assigned user | Used for missed call text-back and call-based lead nurturing |
+
+---
+
+## ⭐ Review / Reputation Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Review Received** | Fires when a new review is posted on Google or Facebook | Review source (Google / Facebook), Review rating (1–5 stars), Review spam status (Yes / No) | Not linked to a specific contact — supports contactless workflows |
+
+---
+
+## 📆 Date / Time Based Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Birthday Reminder** | Fires on or before a contact's birthday date field | Days before/on birthday | Requires birthday field populated on contact |
+| **Date / Anniversary Reminder** | Fires on or around any date-type custom field (anniversary, renewal date, etc.) | Days before / after / on the date, specific date field to reference | Flexible — works with any date-type contact field |
+
+---
+
+## 📄 Document / Contract Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Document / Contract Signed** | Fires when a document or contract is signed | Specific template or document | Used to trigger invoice sending, access granting, or onboarding sequences post-signature |
+| **Document / Contract Sent** | Fires when a document or contract is sent to a recipient | Template name | Useful for sending follow-up reminders |
+
+---
+
+## 🏘️ Community / Membership Triggers
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **User Joins Community / Group Access Granted** | Fires when a user is granted access to a community group | Group name | Trigger onboarding sequences for new community members |
+| **User Leaves Community / Group Access Revoked** | Fires when a user's access to a group is removed | Group name | Trigger offboarding or re-engagement sequences |
+
+---
+
+## 🏢 Company Triggers
+
+> Company-based workflows target the **Company object** instead of individual Contacts — designed for B2B use cases.
+
+| Trigger | Description | Filters Available | Notes |
+|---|---|---|---|
+| **Company Created** | Fires when a new Company record is added | Company owner, tags, custom fields | Use for B2B onboarding automation |
+| **Company Changed** | Fires when specified Company fields are updated | Field name, field value | Use to mirror company lifecycle changes across contacts |
+
+---
+
+## 🗂️ Custom Object Triggers
+
+> Custom Object workflows must be configured as object-based workflow types. The custom object must be defined before use.
+
+| Trigger | Description | Notes |
+|---|---|---|
+| **Custom Object Created** | Fires when a new record for a defined custom object is created | Works with any custom object (e.g., Home, Car, Pet, Project) |
+| **Custom Object Changed** | Fires when a field on a custom object record is updated | Filter by specific field changes for precision |
+
+---
+
+## 🔗 Webhook Triggers
+
+| Trigger | Cost | Description | Notes |
+|---|---|---|---|
+| **Inbound Webhook** | 💰 Premium | Fires when an external system sends data to a unique generated webhook URL | Supports GET, POST, PUT; data must be JSON; email or phone required for contact creation; arrays not supported in custom values |
+
+---
+---
+
+# ⚙️ ACTIONS
+
+---
+
+## 📤 Communication — Outbound Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Send Email** | Free | Send an email to the contact | Template or custom; supports AI-assisted writing, custom values, attachments |
+| **Send SMS** | Free | Send an SMS text message to the contact | Custom message or template; supports custom values and attachments |
+| **Send Ringless Voicemail** | Free | Drop a pre-recorded voicemail without ringing the phone | Upload audio file (MP3, 64kbps recommended); does not ring the recipient's phone |
+| **Make Outbound Call** | Free | Automatically dial the contact | Useful for phone call sequences; connects assigned user to contact |
+| **Manual SMS** | Free | Pauses workflow and queues an SMS for a human team member to review and send | Human-in-the-loop; accessible from Conversations > Manual Actions |
+| **Manual Call** | Free | Pauses workflow and queues a call task for a human team member | Call outcome is recorded and can trigger next workflow steps |
+| **Send Facebook Messenger Message** | Free | Send a message via Facebook Messenger | Requires Facebook Page connected; contact must have interacted within 24-hour window |
+| **Facebook / Instagram Interactive Messenger** | Free | Send an interactive message with buttons to Facebook or Instagram contact | Reply types: Reply to DM, Reply to Comment via DM; supports buttons and attachments |
+| **Send Instagram DM** | Free | Send a direct message to an Instagram contact | Contact must have sent a DM within the last 24 hours; supports templates and attachments |
+| **Send WhatsApp Message** | Free | Send a WhatsApp message to the contact | Requires WhatsApp integration; template-based for business messaging rules |
+| **Send Live Chat Message** | Free | Send a message through the website live chat widget | Contact must be active in a live chat session |
+| **Send Google My Business Message** | Free | Send a message via GMB (Google Business Profile) messaging | Requires GMB messaging integration |
+
+---
+
+## 🔔 Communication — Internal Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Send Internal Notification** | Free | Send an email or SMS notification to an internal team member or user | Choose recipient (assigned user, specific user, custom email); supports custom values in message body; rate limiting applies to prevent overload |
+
+---
+
+## 👤 Contact Management Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Create / Update Contact** | Free | Create a new contact or update fields on an existing contact record | Map any standard or custom contact field; deduplication by email or phone |
+| **Add Tag** | Free | Add one or more tags to the contact | Supports multiple tags in a single action |
+| **Remove Tag** | Free | Remove one or more tags from the contact | Supports multiple tags; select specific tags or all tags |
+| **Update Contact Field** | Free | Replace the current value of a specified custom contact field with a new value | Values can be static or dynamically derived from workflow data; applies to custom fields only |
+| **Clear Field Data** | Free | Reset a custom contact field to empty / default state | Only works on custom fields (not standard fields like first name or email); use carefully as data is removed permanently |
+| **Assign User** | Free | Assign the contact to a specific team member (or unassign) | Select from internal users; supports round-robin assignment logic in some configurations |
+| **Do Not Disturb (DND)** | Free | Enable or disable DND for the contact on specific channels | Channels: SMS, Email, Calls, WhatsApp, Facebook, GMB; can be channel-specific |
+| **Add Contact Follower** | Free | Add one or more internal users as followers on the contact | Select individual users to follow the contact record |
+| **Remove Contact Follower** | Free | Remove one or more followers from the contact | Toggle available to remove ALL followers at once |
+
+---
+
+## 🔀 Workflow Control & Logic Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Wait / Time Delay** | Free | Pause the workflow for a defined time period before proceeding to the next step | Set hours, days, weeks; can pause until a specific day/time window |
+| **Wait for Goal / Event** | Free | Pause the workflow at this step until a specified goal event occurs for the contact | Event types: Trigger Link Clicked, Tag Added, Tag Removed, Appointment Status Changed |
+| **If / Else (Conditional Branch)** | Free | Split the workflow into branches based on conditions evaluated against the contact, opportunity, or workflow data | Supports AND/OR logic; multiple conditions per branch; unlimited branches |
+| **Go To Step** | Free | Jump the contact to a specific earlier or later step in the same workflow | Useful for looping, re-queuing, or skipping steps |
+| **Add to Workflow** | Free | Enroll the contact in a different (published) workflow | Can set a delay before enrollment begins |
+| **Remove from Workflow** | Free | Remove the contact from a specific workflow they are currently enrolled in | Select any active workflow by name |
+| **End Workflow** | Free | Stop the workflow execution for this contact at this point | Terminates all pending steps for this enrollment |
+| **Drip** | Free | Send actions in controlled batches to avoid server overload | Set batch size and interval (e.g., 100 contacts every 1 day) |
+
+---
+
+## 🏆 Opportunity Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Create / Update Opportunity** | Free | Create a new opportunity or update an existing one in a pipeline | Fields: Pipeline, Stage, Name, Value, Status, Source, Lost Reason, Assigned User, Custom Fields |
+| **Remove Opportunity** | Free | Remove a filtered opportunity from a pipeline | Filter by pipeline, stage, status, or custom fields |
+
+---
+
+## 📅 Appointment / Calendar Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Book Appointment** | Free | Create an appointment for the contact on a specified calendar | Select calendar; set date/time using custom values or static input |
+| **Update Appointment Status** | Free | Change the status of an existing appointment for the contact | Statuses: Confirmed, Cancelled, No-Show, Showed, Invalid |
+
+---
+
+## ✅ Task & Note Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Create Task** | Free | Create a task associated with the contact | Set title, due date, description, and assigned user |
+| **Create Note** | Free | Add a note to the contact's record | Supports custom values and plain text; visible in contact activity timeline |
+
+---
+
+## 🎓 Membership & Community Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Grant Course / Membership Access** | Free | Grant the contact access to a specific course or membership product | Select course or offer; access is granted immediately |
+| **Revoke Course / Membership Access** | Free | Remove the contact's access to a specific course or membership | Select course or offer to revoke |
+| **Grant Group Access** | Free | Grant the contact access to a specific community group | Select community group |
+| **Revoke Group Access** | Free | Remove the contact's access to a specific community group | Select community group |
+
+---
+
+## 💳 Payment & Document Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Send Invoice** | Free | Send an invoice to the contact | Select a pre-built invoice template; supports recurring and one-time invoices |
+| **Send Document / Contract** | Free | Send a document or contract for signature | Select a template; supports product lists, signature fields, recurring invoices; can redirect signer to invoice after signing |
+| **Send Review Request** | Free | Send an automated review request to the contact | Directs contact to Google or Facebook review page |
+
+---
+
+## 🤖 AI Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Conversation AI** | Free* | Send an AI-generated message to the contact, wait for reply, and route to branches based on the response | Channels: SMS, Facebook, WhatsApp, Live Chat, Instagram; configure personality, additional instructions, timeout, max replies, branches with conditions; mandatory branches: Time Out, No Condition Met |
+| **AI-Assisted Email Writing** | Free* | Use built-in AI to generate email copy within the Send Email action | Provide a brief description and tone; generates subject line and body; supports regeneration; output can be manually edited |
+
+> *AI actions are billed separately from the Workflow Pro Plan and do not consume standard premium execution credits.
+
+---
+
+## 🔢 Data & Formatting Tool Actions
+
+### Number Formatter
+
+| Sub-Action | Cost | Description |
+|---|---|---|
+| **Text to Number** | Free | Converts text representations of numbers into numeric values for calculations |
+| **Format Number** | Free | Adjusts number display format to match regional or locale-specific conventions |
+| **Format Phone Number** | Free | Standardizes phone numbers including adding country codes; supports E164, International, National, RFC3966 formats |
+| **Format Currency** | Free | Formats currency values according to locale-specific standards |
+| **Random Number** | Free | Generates a random number within a defined min/max range with optional decimal places |
+
+> Output is available in subsequent steps via `{{number_formatter.1.result}}`
+
+---
+
+### Date / Time Formatter
+
+| Sub-Action | Cost | Description |
+|---|---|---|
+| **Format Date** | Free | Converts a date field from one format to another (e.g., MM/DD/YYYY → YYYY-MM-DD) |
+| **Format Date and Time** | Free | Converts both date and time fields from one format to another (e.g., Unix timestamp → readable date-time) |
+| **Compare Dates** | Free | Calculates the difference in days between two dates (End Date − Start Date); negative result means start date is after end date |
+
+> Output is available via `{{datetime_formatter.1.date}}` or `{{datetime_formatter.1.datetime}}`
+
+---
+
+### Array Functions
+
+| Sub-Action | Cost | Description |
+|---|---|---|
+| **Find** | 💰 Premium | Find matching key-value pairs in an array of objects and return the matching object |
+| **Filter** | 💰 Premium | Filter an array by matching key-value pairs to return a subset of objects |
+| **Find by Index** | 💰 Premium | Retrieve a specific item from an array by its index position |
+| **Line Items** | 💰 Premium | Reconstruct an array with custom keys for use in webhooks, spreadsheets, or email builders |
+| **Math** | 💰 Premium | Perform Sum, Min, Max, or Average calculations on numeric values within an array |
+
+---
+
+### Custom Code
+
+| Action | Cost | Description | Notes |
+|---|---|---|---|
+| **Custom Code** | 💰 Premium | Write or AI-generate JavaScript code to perform custom logic, HTTP requests (GET, PUT, POST, DELETE), string manipulation, and data transformation | AI code generation available — describe function in plain language; testing mandatory before use; output must be a JavaScript Object or Array of Objects |
+
+---
+
+## 🏢 Company Actions
+
+> Available in Company-based workflows. Can also create/link companies from Contact-based workflows.
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Create Company** | Free | Create a new Company record | Set company name, owner, tags, and custom fields |
+| **Update Company** | Free | Update fields on an existing Company record | Optionally sync changes to associated Contacts simultaneously |
+| **Clear Fields of Company** | Free | Remove/reset values from specified Company fields | Useful for data hygiene; removes outdated or time-sensitive field values |
+| **Create Associated Contact** | Free | Create a new Contact and link it to a Company | Use within Company-based workflows |
+| **Update Associated Contact** | Free | Update fields on Contacts associated with a Company | Applies changes across all linked contacts or filtered subset |
+| **Clear Fields of Associated Contact** | Free | Reset fields on contacts linked to a Company | Useful for syncing contact data after company changes |
+
+---
+
+## 🗂️ Custom Object Actions
+
+> Available in Custom Object-based workflows. Custom objects must be defined before use.
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Create / Update Custom Object Record** | Free | Create a new record or update an existing one for a defined custom object | Map fields using static values or dynamic workflow variables |
+| **Clear Fields on Custom Object Record** | Free | Reset specified fields on a custom object record to empty | Useful for clearing temporary or time-sensitive data fields |
+
+---
+
+## 🔗 Webhook & Integration Actions
+
+| Action | Cost | Description | Key Options |
+|---|---|---|---|
+| **Custom Webhook (Outbound)** | 💰 Premium | Send an HTTP request with custom data to any external URL | Methods: POST, GET, PUT, DELETE; Authorization types: Basic Auth, Bearer Token, API Key (masked/stored securely); supports custom headers and query parameters; retries with exponential backoff on failure |
+| **Facebook Conversion API** | Free | Send conversion event data back to Facebook Meta without relying on browser cookies | Supported trigger types: Form Submitted, Survey Submitted, Customer Booked Appointment, Order Form Submission, Facebook Lead Form Submitted, Pipeline Stage Changed; requires Access Token and Pixel ID |
+
+---
+---
+
+## 💰 Premium Execution Summary
+
+> Premium actions and triggers consume executions from your Workflow Pro Plan credits.
+> Standard actions are **free** and do **not** count against execution limits.
+> AI actions (Conversation AI, AI Email) are billed **separately** — not included in Pro Plan credits.
+
+| Category | Free | Premium |
+|---|---|---|
+| All native communication actions (Email, SMS, Call, DM, Voicemail) | ✅ | |
+| Contact management (tags, fields, assign, DND, followers) | ✅ | |
+| Workflow control (wait, if/else, go to, end, drip) | ✅ | |
+| Opportunities, tasks, notes, appointments | ✅ | |
+| Memberships, community access | ✅ | |
+| Payments, invoices, documents, review requests | ✅ | |
+| Number formatter | ✅ | |
+| Date/time formatter | ✅ | |
+| Company triggers & actions | ✅ | |
+| Custom object triggers & actions | ✅ | |
+| Facebook Conversion API action | ✅ | |
+| Array Functions (all sub-actions) | | 💰 |
+| Custom Code action | | 💰 |
+| Custom Webhook (outbound) action | | 💰 |
+| Inbound Webhook trigger | | 💰 |
+| AI Workflow actions (billed separately) | | 💰* |
+
+> *AI actions are NOT included in standard premium execution credits — they are billed on a separate AI usage basis.
+
+---
+
+## 📝 Notes & Best Practices
+
+- **Workflow types matter:** Contact-based, Company-based, and Custom Object-based workflows have different available triggers and actions. Always select the correct workflow type for your use case.
+- **Custom Object and Company workflows** require those records to exist before automation can run.
+- **Facebook/Instagram messaging** actions are governed by platform-level messaging windows (24-hour rules). Plan accordingly.
+- **Inbound Webhook trigger** requires either an email address or phone number in the payload to create or find a contact.
+- **Clear Field Data** only works on custom contact fields — standard fields (first name, email, phone) cannot be cleared this way.
+- **Array Functions** are designed for workflows receiving array data from Payment triggers, Webhook triggers, or other structured data sources.
+- **Manual SMS / Manual Call** actions pause the workflow until a human team member completes the action from the Conversations > Manual Actions queue.
+- **Drip action** is used to control the rate of contacts passing through bulk workflow enrollment — prevent server overload and spam flags.
+- **All trigger filters support AND/OR logic** for precision targeting within a single trigger.
+- **Premium execution credits reset monthly** at payment time; unused credits do not roll over (except during mid-cycle plan upgrades).
